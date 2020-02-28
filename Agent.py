@@ -54,6 +54,10 @@ class Agent:
         if (((dt.weekday() == 5 and dt.hour >= 10) or (dt.weekday() == 6 and dt.hour >= 11)) and dt.hour < 19):
             self.state = Action.River
 
+        #Statements to determine: TV
+        if ((dt.hour >= 17 and weekend == False and dt.hour < 22) or (dt.hour > 19 and dt.hour < 22 and weekend == True)):
+            self.state = Action.Television
+
         return self.state
 
     def perform_action(self):
@@ -69,7 +73,8 @@ class Agent:
             return "Can't reply right now, in class"
         if self.state == Action.River:
             return "Weeee... Im swimming in the River"
-
+        if self.state == Action.Television:
+            return "I am watching TV. You can join me if you have popcorn."
         # add in the checks for all the other states
         # return "I am eating lunch"
         # return "I am eating dinner"

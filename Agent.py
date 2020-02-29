@@ -82,13 +82,12 @@ class Agent:
             return "Can't reply right now, in class"
         if self.state == Action.River:
             return "Weeee... Im swimming in the River"
-    
+        if self.state == Action.Television:
+            return "I am watching TV. You can join me if you have popcorn."
         if self.state == Action.Dinner:
             return "Foooooooood!!!:Dinner"
         if self.state == Action.Lunch:
             return "Time for lunch :D "
-        if self.state == Action.Television:
-            return "I am watching TV. You can join me if you have popcorn."
 
         # add in the checks for all the other states
         # return "I am eating lunch"

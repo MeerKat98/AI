@@ -34,9 +34,6 @@ class Agent:
         if (dt.hour >= 22 or dt.hour < 6 or (dt.hour < 9 and weekend)):
             self.state = Action.Sleep
 
-        #Statements to determine: BREAKFAST
-        if ((dt.hour == 6 and weekend == False) or (dt.hour == 9 and weekend == True)):
-            self.state = Action.Breakfast
         
         #Statements to determine: GYM
         if (gym_day == True and (dt.hour == 7)):
@@ -53,18 +50,22 @@ class Agent:
         #Statements to determine: RIVER
         if (((dt.weekday() == 5 and dt.hour >= 10) or (dt.weekday() == 6 and dt.hour >= 11)) and dt.hour < 19):
             self.state = Action.River
+        
+        #Statements to determine: TV
+        if ((dt.hour >= 17 and weekend == False and dt.hour < 22) or (dt.hour > 19 and dt.hour < 22 and weekend == True)):
+            self.state = Action.Television
 
-        #Statements to determine: DINNER
-        if(dt.hour >= 19):
-            self.state = Action.Dinner
+        #Statements to determine: BREAKFAST
+        if ((dt.hour == 6 and weekend == False) or (dt.hour == 9 and weekend == True)):
+            self.state = Action.Breakfast
         
         #Statements to determine: LUNCH
         if(((weekend == False) and (dt.hour == 13)) or ((weekend == True) and (dt.hour == 14)) ):
             self.state = Action.Lunch
             
-        #Statements to determine: TV
-        if ((dt.hour >= 17 and weekend == False and dt.hour < 22) or (dt.hour > 19 and dt.hour < 22 and weekend == True)):
-            self.state = Action.Television
+        #Statements to determine: DINNER
+        if(dt.hour >= 19):
+            self.state = Action.Dinner
 
         return self.state
 

@@ -64,7 +64,7 @@ class Agent:
             self.state = Action.Lunch
             
         #Statements to determine: DINNER
-        if(dt.hour >= 19):
+        if(dt.hour == 19):
             self.state = Action.Dinner
 
         return self.state

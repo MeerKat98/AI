@@ -1,3 +1,6 @@
+# Devan Moller - 30046653
+# Kelvin Popovic - 27694062
+
 '''
 This File interacts with the agent. 
 Includes Test Loop: Runs through all 7 days of the week and prompt the agent 

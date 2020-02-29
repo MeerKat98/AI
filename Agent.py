@@ -1,3 +1,6 @@
+# Devan Moller - 30046653
+# Kelvin Popovic - 27694062
+
 from datetime import datetime
 from enum import Enum, IntEnum
 

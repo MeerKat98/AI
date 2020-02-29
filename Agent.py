@@ -54,6 +54,14 @@ class Agent:
         if (((dt.weekday() == 5 and dt.hour >= 10) or (dt.weekday() == 6 and dt.hour >= 11)) and dt.hour < 19):
             self.state = Action.River
 
+        #Statements to determine: DINNER
+        if(dt.hour >= 19):
+            self.state = Action.Dinner
+        
+        #Statements to determine: LUNCH
+        if(((weekend == False) and (dt.hour == 13)) or ((weekend == True) and (dt.hour == 14)) ):
+            self.state = Action.Lunch
+
         return self.state
 
     def perform_action(self):
@@ -69,6 +77,10 @@ class Agent:
             return "Can't reply right now, in class"
         if self.state == Action.River:
             return "Weeee... Im swimming in the River"
+        if self.state == Action.Dinner:
+            return "Foooooooood!!!:Dinner"
+        if self.state == Action.Lunch:
+            return "Time for lunch :D "
 
         # add in the checks for all the other states
         # return "I am eating lunch"
